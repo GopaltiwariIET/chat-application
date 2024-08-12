@@ -50,26 +50,23 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-  bash
-  git clone https://github.com/akashsinghgithub/chat-app.git
+   git clone https://github.com/akashsinghgithub/chat-app.git
    cd chat-app
    ```
-## run the app
+## `run the app`
 -Go-To root directory
 
-`npm install`
+## `npm install`
 
-### create env file
+### `create env file`
 - Add PORT 5000
 - Add your MONGO_URI
 -Add JWT_SECRET
 
 npm start To start the server.
-
+```bash
 cd .\frontend
-
-npm instal --legacy-peer-deps
-
-`npm start `
-
+npm install --legacy-peer-deps
+npm start 
+```
 ### HAPPY CODING
