@@ -2,7 +2,7 @@ import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { Input } from "@chakra-ui/input";
 import { Box, Text } from "@chakra-ui/layout";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
 	Menu,
 	MenuButton,
@@ -51,11 +51,11 @@ function SideDrawer() {
 
 	const toast = useToast();
 	const { isOpen, onOpen, onClose } = useDisclosure();
-	const navigate = useNavigate();
+	const history = useHistory();
 
 	const logoutHandler = () => {
 		localStorage.removeItem("userInfo");
-		navigate("/");
+		history.push("/");
 	};
 
 	const handleSearch = async () => {
@@ -216,7 +216,7 @@ function SideDrawer() {
 									user={user}
 									handleFunction={() => {
 										accessChat(user._id);
-										setSelectedUser(user); // Set selected user from search results
+										setSelectedUser(user); // Set selected user when accessing chat	
 									}}
 								/>
 							))

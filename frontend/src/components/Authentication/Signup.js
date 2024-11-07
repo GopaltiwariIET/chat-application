@@ -5,13 +5,13 @@ import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
 	const [show, setShow] = useState(false);
 	const handleClick = () => setShow(!show);
 	const toast = useToast();
-	const navigate = useNavigate();
+	const history = useHistory();
 	const [name, setName] = useState();
 	const [email, setEmail] = useState();
 	const [confirmpassword, setConfirmpassword] = useState();
@@ -67,7 +67,7 @@ const Signup = () => {
 			});
 			localStorage.setItem("userInfo", JSON.stringify(data));
 			setPicLoading(false);
-			navigate("/chats");
+			history.push("/chats");
 		} catch (error) {
 			toast({
 				title: "Error Occured!",
@@ -97,15 +97,14 @@ const Signup = () => {
 			const data = new FormData();
 			data.append("file", pics);
 			data.append("upload_preset", "chat-app");
-			data.append("cloud_name", "dsvdkxl6h");
-			fetch("https://api.cloudinary.com/v1_1/dsvdkxl6h/image/upload", {
+			data.append("cloud_name", "gopaltiwari28122003");
+			fetch("https://api.cloudinary.com/v1_1/gopaltiwari28122003/image/upload", {
 				method: "post",
 				body: data,
 			})
 				.then((res) => res.json())
 				.then((data) => {
 					setPic(data.url.toString());
-					console.log(data.url.toString());
 					setPicLoading(false);
 				})
 				.catch((err) => {
